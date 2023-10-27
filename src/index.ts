@@ -2,6 +2,7 @@ import express from 'express';
 import helmet from 'helmet';
 import cors from 'cors';
 import { ENV } from './env';
+import { LOGGER } from './logger';
 
 const app = express();
 
@@ -14,5 +15,6 @@ app.get('/health', (_, res) => {
 });
 
 app.listen(ENV.PORT, () => {
-  console.log(`Server is running on port ${ENV.PORT}`);
+  LOGGER.info(`App Environment: ${ENV.NODE_ENV}`);
+  LOGGER.info(`App running on port ${ENV.PORT}`);
 });
