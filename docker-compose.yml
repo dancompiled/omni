@@ -1,0 +1,17 @@
+version: '3.1'
+
+services:
+  postgres:
+    image: postgres:15
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: omni
+      POSTGRES_USER: omni
+      POSTGRES_DB: omni
+    ports:
+      - 5432:5432
+    volumes:
+      - omni-data:/var/lib/postgresql/data
+
+volumes:
+  omni-data:
